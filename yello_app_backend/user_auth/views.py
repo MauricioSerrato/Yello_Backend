@@ -5,10 +5,12 @@ from .forms import RegisterForm
 def home (request):
     return render(request, 'user_auth/home.html')
 
-    def sign_up(request):
-        if request.method == 'POST':
+
+
+def sign_up(request):
+    if request.method == 'POST':
             form  = RegisterForm(request.POST)
-        else: 
+    else: 
             form = RegisterForm()
 
-        return render (request, 'registration/sign_up.html', {"form": form})    
+    return render (request, 'registration/sign_up.html', {"form": form})    
