@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 ]
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -85,7 +90,11 @@ WSGI_APPLICATION = 'yello_app_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'auth_api',
+        'NAME': 'd5507v0pdae0b0',
+        'USER': 'xvjtekkuqvrwlv',
+        'PASSWORD': '1d00cf5135cd2a05bea997fcb1e4be30bbe0b0ea66dea66a787618e35136ad43', 
+        'HOST': 'ec2-44-209-158-64.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
@@ -130,3 +139,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = '/home'
+LOGOUT_REDIRECT_URL = '/login'
