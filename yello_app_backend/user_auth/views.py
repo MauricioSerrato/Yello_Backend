@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import RegisterForm
 
 # Create your views here.
 def home (request):
@@ -10,4 +11,4 @@ def home (request):
         else: 
             form = RegisterForm()
 
-        return render (request, 'registration/signup.html', {"form": form})    
+        return render (request, 'registration/sign_up.html', {"form": form})    
