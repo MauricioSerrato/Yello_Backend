@@ -19,7 +19,7 @@ class UserDetail(generics.RetriveUpdateDestroyAPIView):
     serializer_class = UserSerializer
 
 
-    
+
 @login_required(login_url="/login")
 def home (request):
     posts = Post.objects.all()
