@@ -2,12 +2,16 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm, PostForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate 
+from .models import Post
 
 
 # Create your views here.
 @login_required(login_url="/login")
 def home (request):
-    return render(request, 'user_auth/home.html')
+    posts = Post.objects.all()
+
+
+    return render(request, 'user_auth/home.html', {"posts": posts})
 
 @login_required(login_url="/login")
 def create_post(request):
