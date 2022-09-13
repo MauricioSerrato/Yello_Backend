@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from .serializers import UserSerializer
+from rest_framework import generics
 from .forms import RegisterForm, PostForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, logout, authenticate 
@@ -7,6 +9,17 @@ from .models import Post
 
 
 # Create your views here.
+
+class UserList(generics.ListCreateAPIView):
+    queryset = User.objects.all().order_by('username')
+    serializer_class = UserSerializer
+
+class UserDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = User.objects.all().order_by('username')
+    serializer_class = UserSerializer
+
+
+
 @login_required(login_url="/login")
 def home (request):
     posts = Post.objects.all()
