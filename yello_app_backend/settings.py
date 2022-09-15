@@ -96,10 +96,10 @@ WSGI_APPLICATION = 'yello_app_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd5507v0pdae0b0',
-        'USER': 'xvjtekkuqvrwlv',
-        'PASSWORD': config('PASSWORD'), 
-        'HOST': 'ec2-44-209-158-64.compute-1.amazonaws.com',
+        'NAME': 'auth_api',
+        'USER': '',
+        'PASSWORD':'', 
+        'HOST': 'localhost',
         'PORT': '5432'
     }
 }
