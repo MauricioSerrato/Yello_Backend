@@ -1,11 +1,12 @@
 from django.shortcuts import render, redirect
-from .serializers import UserSerializer
+from .serializers import UserSerializer, PostSerializer
 from rest_framework import generics
 from .forms import RegisterForm, PostForm
 from django.contrib.auth.decorators import login_required, permission_required
 from django.contrib.auth import login, logout, authenticate 
 from django.contrib.auth.models import User, Group 
 from .models import Post
+
 
 
 # Create your views here.
@@ -18,6 +19,13 @@ class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all().order_by('username')
     serializer_class = UserSerializer
 
+class PostList(generics.ListCreateAPIView):
+    queryset = Post.objects.all().order_by('author')
+    serializer_class = PostSerializer
+
+class PostDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Post.objects.all().order_by('author')
+    serializer_class = PostSerializer
 
 
 @login_required(login_url="/login")

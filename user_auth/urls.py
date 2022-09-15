@@ -9,4 +9,6 @@ urlpatterns = [
     path('create-post', views.create_post, name='create_post'),
     path('api/users', views.UserList.as_view(), name='user_list'),
     path('api/users/<int:pk>', views.UserDetail.as_view(), name='user_detail'),
+    path('post', views.PostList.as_view(), name='post'),
+    path('post/<int:pk>', views.PostDetail.as_view(), name='post_detail'),
 ]
